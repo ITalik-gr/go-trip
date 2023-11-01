@@ -1,29 +1,29 @@
-import ActivityTypes from "../sidebar/ActivityTypes";
+import AccommodationTypes from "../sidebar/AccommodationTypes";
 import OthersFilter from "../sidebar/OthersFilter";
 import Duration from "../sidebar/Duration";
 import Languages from "../sidebar/Languages";
 import PirceSlider from "../sidebar/PirceSlider";
 import PopularAttractions from "../sidebar/PopularAttractions";
-
+// ? MAIN SIDEBAR
 const Sidebar = () => {
   return (
     <>
       <div className="sidebar__item -no-border">
-        <h5 className="text-18 fw-500 mb-10">Activity Types</h5>
+        <h5 className="text-18 fw-500 mb-10">Accommodation Types</h5>
         <div className="sidebar-checkbox">
-          <ActivityTypes />
+          <AccommodationTypes />
         </div>
         {/* End Sidebar-checkbox */}
       </div>
       {/* End popular filter */}
 
-      <div className="sidebar__item">
+      {/* <div className="sidebar__item">
         <h5 className="text-18 fw-500 mb-10">Other</h5>
         <div className="sidebar-checkbox">
           <OthersFilter />
         </div>
         {/* End Sidebar-checkbox */}
-      </div>
+      {/* </div>  */}
       {/* End Aminities filter */}
 
       <div className="sidebar__item pb-30">

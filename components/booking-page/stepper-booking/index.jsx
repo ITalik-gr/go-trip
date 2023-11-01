@@ -8,6 +8,7 @@ import OrderSubmittedInfo from "../OrderSubmittedInfo";
 import OrderDetails from "../OrderDetails";
 import { useSearchParams } from 'next/navigation'
 import FlightsAll from "@/components/flight-all";
+import Transfer from "../Transfer";
 
 const Index = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -66,15 +67,20 @@ const Index = () => {
   //   },
   // ];
 
-  const type = {
+  const typeComponent = {
     flights: <FlightsAll />,
     accommodation: <CustomerInfo />,
-    transfer: <PaymentInfo />,
+    transfer: <Transfer />,
+  }
+  const stepName = {
+    flights: "Flights",
+    accommodation: "Accommodation",
+    transfer: "Transfer",
   }
     // Генеруємо динамічні степи на основі includes
   const allSteps = includes.map((include, index) => ({
-    title: include, // Назва береться з includes
-    stepNo: (index + 1).toString(), // Ви розпочинаєте з номера 4 (після статичних степів)
+    title: stepName[include],
+    stepNo: (index + 1).toString(),
     stepBar: index + 1 !== includes.length ? (
       <>
         <div className="col d-none d-sm-block">
@@ -82,7 +88,7 @@ const Index = () => {
         </div>
       </>
     ) : (""),
-    content: type[include],
+    content: typeComponent[include],
   }));
   
     // Об'єднуємо статичні та динамічні степи

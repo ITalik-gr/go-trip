@@ -6,11 +6,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import ActivitiesData from "../../../data/activity";
 import Link from "next/link";
+import { useState } from "react";
+
+// ? LIST ITEMS
 
 const ActivityProperties = () => {
+
+  const [priceRange, setPriceRange] = useState({ min: 1, max: 70 });
+
+  const filterDataByPrice = (data, priceRange) => {
+    return data.filter((item) => item.price >= priceRange.min && item.price <= priceRange.max);
+  };
+
+  const filteredData = filterDataByPrice(ActivitiesData.slice(4, 9), priceRange);
   return (
     <>
-      {ActivitiesData.slice(4, 9).map((item) => (
+      {filteredData.map((item) => (
         <div
           className="col-12"
           key={item?.id}

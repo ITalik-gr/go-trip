@@ -1,0 +1,37 @@
+.transfer {
+  &-card {
+    display: flex;
+    align-items: center;
+    max-width: 650px;
+    box-shadow: rgba(0, 44, 153, 0.08) 0px 4px 16px;
+    transition: .3s all;
+    padding: 3rem;
+    margin-bottom: 15px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:hover {
+      cursor: pointer;
+      filter: drop-shadow(rgba(0, 44, 153, 0.12) 0px 8px 20px);
+    }
+    &__image {
+      margin-right: 15px;
+      max-width: 250px;
+      width: 100%;
+    }
+    &__text {
+
+    }
+    &__title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    &__descr {
+      max-width: 350px;
+      font-size: 14px;
+      font-weight: 300;
+      color: rgb(82, 93, 122);
+      line-height: 130%;
+    }
+  }
+}

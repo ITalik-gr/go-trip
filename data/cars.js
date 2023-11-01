@@ -2,7 +2,7 @@ module.exports = [
   {
     id: 1,
     tag: "",
-    slideImg: ["/img/cars/1.png"],
+    slideImg: ["/img/cars/skoda_octavia.webp"],
     title: "Mercedes-Benz E-Class",
     location: "Heathrow Airport",
     type: "LUXURY",
@@ -18,7 +18,7 @@ module.exports = [
   {
     id: 2,
     tag: "",
-    slideImg: ["/img/cars/2.png", "/img/cars/1.png", "/img/cars/3.png"],
+    slideImg: ["/img/cars/slides/2.png", "/img/cars/slides/1.png", "/img/cars/slides/3.png"],
     title: "Jaguar F-Pace",
     location: "Heathrow Airport",
     type: "SUV",

@@ -13,7 +13,7 @@ const CarPropertes = () => {
       {carsData.slice(0, 5).map((item) => (
         <div className="col-12" key={item?.id}>
           <div className="border-top-light pt-30">
-            <div className="row x-gap-20 y-gap-20">
+            <div className="row mb-20 x-gap-20 y-gap-20">
               <div className="col-md-auto">
                 <div className="relative d-flex">
                   <div className="cardImage w-250 md:w-1/1 rounded-4 border-light">

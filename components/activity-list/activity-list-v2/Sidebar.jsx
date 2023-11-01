@@ -1,4 +1,4 @@
-import ActivityTypes from "../sidebar/ActivityTypes";
+import ActivityTypes from "../sidebar/AccommodationTypes";
 import OthersFilter from "../sidebar/OthersFilter";
 import Duration from "../sidebar/Duration";
 import Languages from "../sidebar/Languages";

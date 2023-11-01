@@ -1,5 +1,5 @@
-const ActivityTypes = () => {
-  const activityTypes = [
+const AccommodationTypes = () => {
+  const accommodationTypes = [
     { name: "Art and Culture", count: 92 },
     { name: "Food and Drink", count: 45 },
     { name: "Entertainment", count: 21 },
@@ -9,7 +9,7 @@ const ActivityTypes = () => {
 
   return (
     <>
-      {activityTypes.map((activityType, index) => (
+      {accommodationTypes.map((accommodationType, index) => (
         <div key={index} className="row y-gap-10 items-center justify-between">
           <div className="col-auto">
             <div className="form-checkbox d-flex items-center">
@@ -17,11 +17,11 @@ const ActivityTypes = () => {
               <div className="form-checkbox__mark">
                 <div className="form-checkbox__icon icon-check" />
               </div>
-              <div className="text-15 ml-10">{activityType.name}</div>
+              <div className="text-15 ml-10">{accommodationType.name}</div>
             </div>
           </div>
           <div className="col-auto">
-            <div className="text-15 text-light-1">{activityType.count}</div>
+            <div className="text-15 text-light-1">{accommodationType.count}</div>
           </div>
         </div>
       ))}
@@ -29,4 +29,4 @@ const ActivityTypes = () => {
   );
 };
 
-export default ActivityTypes;
+export default AccommodationTypes;
