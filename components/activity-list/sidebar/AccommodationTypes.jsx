@@ -1,11 +1,39 @@
-const AccommodationTypes = () => {
+'use client'
+
+import activity from "@/data/activity";
+import { useEffect } from "react";
+
+const AccommodationTypes = ({filter, setFilter}) => {
+
+  const handleCheckboxChange = (event) => {
+    const checkboxName = event.target.dataset.name;
+    const selectedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    
+    if (selectedCheckboxes.length > 1) {
+      setFilter({ ...filter, accommodationType: "all" });
+    } else {
+      if (event.target.checked) {
+        setFilter({ ...filter, accommodationType: checkboxName });
+      } else {
+        setFilter({ ...filter, accommodationType: "all" });
+      }
+    }
+  };
+  
+  
+  
   const accommodationTypes = [
-    { name: "Art and Culture", count: 92 },
-    { name: "Food and Drink", count: 45 },
-    { name: "Entertainment", count: 21 },
-    { name: "Sports", count: 78 },
-    { name: "Nature and Outdoors", count: 679 },
+    { name: "hotel", count: 0 },
+    { name: "home", count: 0 },
   ];
+
+  activity.forEach((item) => {
+    if (item.accommodation === "hotel") {
+      accommodationTypes[0].count++;
+    } else if (item.accommodation === "home") {
+      accommodationTypes[1].count++;
+    }
+  });
 
   return (
     <>
@@ -13,7 +41,7 @@ const AccommodationTypes = () => {
         <div key={index} className="row y-gap-10 items-center justify-between">
           <div className="col-auto">
             <div className="form-checkbox d-flex items-center">
-              <input type="checkbox" />
+              <input data-name={accommodationType.name} type="checkbox" onChange={handleCheckboxChange}/>
               <div className="form-checkbox__mark">
                 <div className="form-checkbox__icon icon-check" />
               </div>

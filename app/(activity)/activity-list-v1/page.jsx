@@ -1,3 +1,5 @@
+
+"use client"
 import CallToActions from "@/components/common/CallToActions";
 import Header11 from "@/components/header/header-11";
 import DefaultFooter from "@/components/footer/default";
@@ -6,13 +8,22 @@ import TopHeaderFilter from "@/components/activity-list/activity-list-v1/TopHead
 import ActivityProperties from "@/components/activity-list/activity-list-v1/ActivityProperties";
 import Pagination from "@/components/activity-list/common/Pagination";
 import Sidebar from "@/components/activity-list/activity-list-v1/Sidebar";
+import { useState } from "react";
 
-export const metadata = {
-  title: "Activity List v1 || GoTrip - Travel & Tour React NextJS Template",
-  description: "GoTrip - Travel & Tour React NextJS Template",
-};
+// export const metadata = {
+//   title: "Activity List v1 || GoTrip - Travel & Tour React NextJS Template",
+//   description: "GoTrip - Travel & Tour React NextJS Template",
+// };
 
 const index = () => {
+  const [filter, setFilter] = useState({
+    price: { min: 0, max: 500 },
+    accommodationType: 'all',
+    starRating: 'all',
+    name: "all"
+  });
+
+  console.log(filter);
   return (
     <>
       {/* End Page Title */}
@@ -48,7 +59,7 @@ const index = () => {
     {/* Sidebar */}
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar />
+                <Sidebar filter={filter}  setFilter={setFilter} />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -88,7 +99,7 @@ const index = () => {
               {/* End mt--30 */}
 
               <div className="row y-gap-30">
-                <ActivityProperties />
+                <ActivityProperties filter={filter} />
               </div>
               
               {/* End .row */}

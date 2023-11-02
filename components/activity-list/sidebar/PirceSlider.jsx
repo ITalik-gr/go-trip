@@ -4,13 +4,14 @@
 import { useState } from "react";
 import InputRange from "react-input-range";
 
-const PirceSlider = () => {
+const PirceSlider = ({filter, setFilter}) => {
   const [price, setPrice] = useState({
     value: { min: 0, max: 500 },
   });
 
   const handleOnChange = (value) => {
     setPrice({ value });
+    setFilter({...filter, price: value})
   };
 
   return (

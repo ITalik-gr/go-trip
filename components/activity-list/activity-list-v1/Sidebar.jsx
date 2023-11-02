@@ -4,14 +4,16 @@ import Duration from "../sidebar/Duration";
 import Languages from "../sidebar/Languages";
 import PirceSlider from "../sidebar/PirceSlider";
 import PopularAttractions from "../sidebar/PopularAttractions";
+import StarRating from "../sidebar/StarRating";
 // ? MAIN SIDEBAR
-const Sidebar = () => {
+const Sidebar = ({filter, setFilter}) => {
+  // console.log(filter)
   return (
     <>
       <div className="sidebar__item -no-border">
         <h5 className="text-18 fw-500 mb-10">Accommodation Types</h5>
         <div className="sidebar-checkbox">
-          <AccommodationTypes />
+          <AccommodationTypes filter={filter} setFilter={setFilter} />
         </div>
         {/* End Sidebar-checkbox */}
       </div>
@@ -30,16 +32,16 @@ const Sidebar = () => {
         <h5 className="text-18 fw-500 mb-10">Price</h5>
         <div className="row x-gap-10 y-gap-30">
           <div className="col-12">
-            <PirceSlider />
+            <PirceSlider filter={filter} setFilter={setFilter} />
           </div>
         </div>
       </div>
       {/* End Nightly priceslider */}
 
       <div className="sidebar__item">
-        <h5 className="text-18 fw-500 mb-10">Duration</h5>
+        <h5 className="text-18 fw-500 mb-10">Star Raring</h5>
         <div className="sidebar-checkbox">
-          <Duration />
+          <StarRating filter={filter} setFilter={setFilter}/>
         </div>
       </div>
       {/* End style filter */}
