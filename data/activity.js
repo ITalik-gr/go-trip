@@ -11,7 +11,7 @@ module.exports = [
     price: "67",
     delayAnimation: "100",
     extra: ["flights", "ski passes"],
-    accommodation: "hotel",
+    accommodation: "Hotel",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ module.exports = [
     price: "99",
     delayAnimation: "200",
     extra: ["flights", "ski equipment", "ski passes", "transfer"],
-    accommodation: "home",
+    accommodation: "Chalet",
   },
 
   {
@@ -44,7 +44,7 @@ module.exports = [
     price: "88",
     delayAnimation: "300",
     extra: ["flights", "ski equipment", "ski passes", "transfer"],
-    accommodation: "home",
+    accommodation: "Chalet",
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ module.exports = [
     price: "55",
     delayAnimation: "400",
     extra: ["ski passes", "transfer"],
-    accommodation: "home",
+    accommodation: "Chalet",
   },
   {
     id: 5,
@@ -73,7 +73,7 @@ module.exports = [
     delayAnimation: "100",
     included: ["accommodation", "flights", "transfer"],
     extra: ["flights", "ski equipment", "ski passes", "transfer"],
-    accommodation: "hotel",
+    accommodation: "Hotel",
   },
   {
     id: 6,
@@ -87,7 +87,7 @@ module.exports = [
     price: "67",
     delayAnimation: "200",
     extra: ["flights"],
-    accommodation: "hotel",
+    accommodation: "Hotel",
   },
   {
     id: 7,
@@ -105,7 +105,7 @@ module.exports = [
     price: "99",
     delayAnimation: "300",
     extra: ["flights", "ski equipment", "ski passes", "transfer"],
-    accommodation: "home",
+    accommodation: "Chalet",
   },
 
   {
@@ -119,7 +119,7 @@ module.exports = [
     ratings: "4.82",
     price: "88",
     delayAnimation: "400",
-    accommodation: "home",
+    accommodation: "Chalet",
   },
   {
     id: 9,
@@ -133,6 +133,6 @@ module.exports = [
     price: "55",
     delayAnimation: "500",
     extra: ["flights", "ski equipment", "ski passes", "transfer"],
-    accommodation: "home",
+    accommodation: "Chalet",
   },
 ];

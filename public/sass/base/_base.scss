@@ -84,6 +84,16 @@ p {
   color: var(--color-light-1);
 }
 
+// SIDEBAR PROPERTY NAME FILTER INPUT
+.property-name__input {
+  border: solid 1px #dadada!important;
+  border-radius: 8px;
+  transition: all .3s ease-in-out;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  padding: 8px 12px;
+}
+
 
 // SPINER
 

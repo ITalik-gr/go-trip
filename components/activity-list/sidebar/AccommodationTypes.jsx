@@ -23,14 +23,14 @@ const AccommodationTypes = ({filter, setFilter}) => {
   
   
   const accommodationTypes = [
-    { name: "hotel", count: 0 },
-    { name: "home", count: 0 },
+    { name: "Hotel", count: 0 },
+    { name: "Chalet", count: 0 },
   ];
 
   activity.forEach((item) => {
-    if (item.accommodation === "hotel") {
+    if (item.accommodation === "Hotel") {
       accommodationTypes[0].count++;
-    } else if (item.accommodation === "home") {
+    } else if (item.accommodation === "Chalet") {
       accommodationTypes[1].count++;
     }
   });

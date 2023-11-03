@@ -20,9 +20,41 @@ const ActivityProperties = ({filter}) => {
   // starRating: 'all', "1", "2" ...
   // name: "all" | Тут сортування по тому що написано до title
 
+  // const filterData = () => {
+  //   const { price, accommodationType, starRating, name } = filter;
+
+  //   // Фільтруємо за price
+  //   const filteredByPrice = activity.filter((item) => {
+  //     return item.price >= price.min && item.price <= price.max;
+  //   });
+  
+  //   // Фільтруємо за accommodationType (якщо вибрано "hotel" або "home")
+  //   const filteredByAccommodationType = filteredByPrice.filter((item) => {
+  //     if (accommodationType === "all") {
+  //       return true;
+  //     }
+  //     return item.accommodation === accommodationType;
+  //   });
+  
+  //   // Фільтруємо за starRating (якщо вибрано "1", "2", тощо)
+  //   const filteredByStarRating = filteredByAccommodationType.filter((item) => {
+  //     if (starRating === "all") {
+  //       return true;
+  //     }
+
+  //     let rat = starRating.toString()
+  //     return item.ratings >= rat;
+  //   });
+  
+  //   // Сортуємо за name (якщо вибрано "all", то залишаємо без змін)
+  //   const sortedData = name === "all" ? filteredByStarRating : [...filteredByStarRating].sort((a, b) => a.title.localeCompare(b.title));
+  
+  //   setFilteredData(sortedData);
+  // }
+
   const filterData = () => {
     const { price, accommodationType, starRating, name } = filter;
-
+  
     // Фільтруємо за price
     const filteredByPrice = activity.filter((item) => {
       return item.price >= price.min && item.price <= price.max;
@@ -39,19 +71,25 @@ const ActivityProperties = ({filter}) => {
     // Фільтруємо за starRating (якщо вибрано "1", "2", тощо)
     const filteredByStarRating = filteredByAccommodationType.filter((item) => {
       if (starRating === "all") {
-        console.log('айтеми да all')
         return true;
       }
-
-      let rat = starRating.toString()
+  
+      let rat = parseInt(starRating);
       return item.ratings >= rat;
     });
   
-    // Сортуємо за name (якщо вибрано "all", то залишаємо без змін)
-    const sortedData = name === "all" ? filteredByStarRating : [...filteredByStarRating].sort((a, b) => a.title.localeCompare(b.title));
+    // Фільтруємо за точним співпаданням тайтлу
+    const filteredByName = filteredByStarRating.filter((item) => {
+      if (name === "all") {
+        return true;
+      }
   
-    setFilteredData(sortedData);
+      return item.title.toLowerCase().startsWith(name.toLowerCase());
+    });
+  
+    setFilteredData(filteredByName);
   }
+  
   
 
   // const filterDataByPrice = (data, priceRange) => {
