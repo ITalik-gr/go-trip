@@ -22,51 +22,6 @@ const Index = () => {
 
   console.log(includes);
 
-  // const steps = [
-  //   {
-  //     title: "Personal Details",
-  //     stepNo: "1",
-  //     stepBar: (
-  //       <>
-  //         <div className="col d-none d-sm-block">
-  //           <div className="w-full h-1 bg-border"></div>
-  //         </div>
-  //       </>
-  //     ),
-  //     content: <CustomerInfo />,
-  //   },
-  //   {
-  //     title: "Order Details",
-  //     stepNo: `${2 + includes.length}`,
-  //     stepBar: (
-  //       <>
-  //         <div className="col d-none d-sm-block">
-  //           <div className="w-full h-1 bg-border"></div>
-  //         </div>
-  //       </>
-  //     ),
-  //     content: <OrderDetails />,
-  //   },
-  //   {
-  //     title: "Payment Details",
-  //     stepNo: `${3 + includes.length}`,
-  //     stepBar: (
-  //       <>
-  //         <div className="col d-none d-sm-block">
-  //           <div className="w-full h-1 bg-border"></div>
-  //         </div>
-  //       </>
-  //     ),
-  //     content: <PaymentInfo />,
-  //   },
-  //   {
-  //     title: "Final Step",
-  //     stepNo: `${4 + includes.length}`,
-  //     stepBar: "",
-  //     content: <OrderSubmittedInfo />,
-  //   },
-  // ];
-
   const typeComponent = {
     flights: <FlightsAll />,
     accommodation: <CustomerInfo />,
@@ -78,18 +33,22 @@ const Index = () => {
     transfer: "Transfer",
   }
     // Генеруємо динамічні степи на основі includes
-  const allSteps = includes.map((include, index) => ({
-    title: stepName[include],
-    stepNo: (index + 1).toString(),
-    stepBar: index + 1 !== includes.length ? (
-      <>
-        <div className="col d-none d-sm-block">
-          <div className="w-full h-1 bg-border"></div>
-        </div>
-      </>
-    ) : (""),
-    content: typeComponent[include],
-  }));
+    
+    const allSteps = includes
+    .filter((include) => !["ski_equipment", "ski_passes"].includes(include))
+    .map((include, index) => ({
+      title: stepName[include],
+      stepNo: (index + 1).toString(),
+      stepBar: index + 1 !== includes.length - 2 ? (
+        <>
+        {console.log(index + 1 !== includes.length)}
+          <div className="col d-none d-sm-block">
+            <div className="w-full h-1 bg-border"></div>
+          </div>
+        </>
+      ) : (""),
+      content: typeComponent[include],
+    }));
   
     // Об'єднуємо статичні та динамічні степи
   
@@ -113,7 +72,7 @@ const Index = () => {
 
   return (
     <>
-      <div className="row x-gap-40 y-gap-30 items-center">
+      <div className="row x-gap-40 y-gap-30 items-center justify-center">
         {allSteps.map((step, index) => (
           <React.Fragment key={index}>
             <div className="col-auto">

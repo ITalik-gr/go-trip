@@ -79,13 +79,13 @@ const ActivityProperties = ({filter}) => {
     });
   
     // Фільтруємо за точним співпаданням тайтлу
-    const filteredByName = filteredByStarRating.filter((item) => {
-      if (name === "all") {
-        return true;
-      }
-  
-      return item.title.toLowerCase().startsWith(name.toLowerCase());
-    });
+ const filteredByName = filteredByStarRating.filter((item) => {
+    if (name === "all") {
+      return true;
+    }
+
+    return item.title.toLowerCase().startsWith(name.toLowerCase());
+  });
   
     setFilteredData(filteredByName);
   }

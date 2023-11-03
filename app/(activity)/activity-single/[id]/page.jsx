@@ -28,14 +28,14 @@ const TourSingleV1Dynamic = ({ params }) => {
   const id = params.id;
   const activity =
     activityData.find((item) => item.id == id) || activityData[0];
-  console.log(activity.included);
+  console.log(activity.extra);
+  console.log(activity)
   return (
     <>
       {/* End Page Title */}
 
       <div className="header-margin"></div>
       {/* header top margin */}
-
       <Header11 />
       {/* End Header 1 */}
 

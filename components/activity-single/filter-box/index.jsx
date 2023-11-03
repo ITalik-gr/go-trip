@@ -24,7 +24,7 @@ const index = ({activity}) => {
 
       <div className="col-12">
         <Link
-          href={`/booking-page?includes=${activity?.included}`}
+          href={`/booking-page?includes=${activity?.extra}`}
           className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white"
         >
           Book Now
