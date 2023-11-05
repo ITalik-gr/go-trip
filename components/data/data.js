@@ -9,6 +9,9 @@ module.exports = [
     numberOfReviews: "94",
     ratings: "4.82",
     price: "67",
+    guest: "2",
+    bedroom: "1",
+    bed: "1",
     delayAnimation: "100",
   },
   {
@@ -25,6 +28,9 @@ module.exports = [
     numberOfReviews: "2045",
     ratings: "4.82",
     price: "99",
+    guest: "2",
+    bedroom: "1",
+    bed: "1",
     delayAnimation: "200",
   },
 
@@ -38,6 +44,9 @@ module.exports = [
     numberOfReviews: "2163",
     ratings: "4.82",
     price: "88",
+    guest: "2",
+    bedroom: "1",
+    bed: "1",
     delayAnimation: "300",
   },
   {
@@ -50,6 +59,9 @@ module.exports = [
     numberOfReviews: "1458",
     ratings: "4.82",
     price: "55",
+    guest: "2",
+    bedroom: "1",
+    bed: "1",
     delayAnimation: "400",
   },
   {
@@ -62,6 +74,9 @@ module.exports = [
     numberOfReviews: "94",
     ratings: "4.82",
     price: "67",
+    guest: "2",
+    bedroom: "1",
+    bed: "1",
     delayAnimation: "100",
   },
   {
@@ -74,6 +89,9 @@ module.exports = [
     numberOfReviews: "94",
     ratings: "4.82",
     price: "67",
+    guest: "2",
+    bedroom: "1",
+    bed: "1",
     delayAnimation: "200",
   },
   {
@@ -90,6 +108,9 @@ module.exports = [
     numberOfReviews: "2045",
     ratings: "4.82",
     price: "99",
+    guest: "2",
+    bedroom: "1",
+    bed: "1",
     delayAnimation: "300",
   },
 
@@ -103,6 +124,9 @@ module.exports = [
     numberOfReviews: "2163",
     ratings: "4.82",
     price: "88",
+    guest: "2",
+    bedroom: "1",
+    bed: "1",
     delayAnimation: "400",
   },
   {
@@ -115,6 +139,9 @@ module.exports = [
     numberOfReviews: "1458",
     ratings: "4.82",
     price: "55",
+    guest: "2",
+    bedroom: "1",
+    bed: "1",
     delayAnimation: "500",
   },
 ];

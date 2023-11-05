@@ -1,3 +1,4 @@
+"use client"
 import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
 import rentalsData from "@/data/rentals";
@@ -15,15 +16,22 @@ import DefaultFooter from "@/components/footer/default";
 import SlideGallery from "@/components/rental-single/SlideGallery";
 import MapPropertyFinder from "@/components/rental-single/MapPropertyFinder";
 import HelpfulFacts from "@/components/rental-single/HelpfulFacts";
+import { useEffect, useState } from "react";
 
-export const metadata = {
-  title: "Rental Single || GoTrip - Travel & Tour React NextJS Template",
-  description: "GoTrip - Travel & Tour React NextJS Template",
-};
 
 const TourSingleV1Dynamic = ({ params }) => {
+  const [rental, setRental] = useState(null)
   const id = params.id;
-  const rental = rentalsData.find((item) => item.id == id) || rentalsData[0];
+
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/items/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setRental(data)
+      // setLoading(false)
+    })
+  }, [])
 
   return (
     <>

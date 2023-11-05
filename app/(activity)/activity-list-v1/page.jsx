@@ -16,6 +16,7 @@ import { useState } from "react";
 // };
 
 const index = () => {
+  
   const [filter, setFilter] = useState({
     price: { min: 0, max: 500 },
     accommodationType: 'all',
