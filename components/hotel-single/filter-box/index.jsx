@@ -1,5 +1,6 @@
 import GuestSearch from "./GuestSearch";
 import DateSearch from "./DateSearch";
+import Link from "next/link";
 
 const index = ({hotel}) => {
 
@@ -7,7 +8,6 @@ const index = ({hotel}) => {
   let extrasWithoutAccommodation;
  
   if(hotel.extra) {
-    console.log('extaaa')
     extras = hotel?.extra;
     extrasWithoutAccommodation = extras.filter(extra => extra !== 'accommodation');
   }
@@ -60,11 +60,17 @@ const index = ({hotel}) => {
       </div>
 
       <div className="col-12">
-        <div className="button-item h-full">
+        {/* <div className="button-item h-full">
           <button className="button -dark-1 px-35 h-60 col-12 bg-blue-1 text-white">
             Check availability
           </button>
-        </div>
+        </div> */}
+        <Link
+          href={`/booking-page?includes=${hotel?.extra}`}
+          className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white"
+        >
+          Book Now
+        </Link>
         {/* End search button_item */}
       </div>
       {/* End .col-12 */}

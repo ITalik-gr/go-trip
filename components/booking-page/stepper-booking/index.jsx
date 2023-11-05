@@ -14,11 +14,11 @@ const Index = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
 
-  // const searchParams = useSearchParams()
+  const searchParams = useSearchParams()
  
-  // const search = searchParams.get('includes')
+  const search = searchParams.get('includes')
 
-  // const includes = search.split(',');
+  const includes = search.split(',');
 
   // console.log(includes);
 
