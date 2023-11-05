@@ -1,4 +1,3 @@
-"use client"
 import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
 import rentalsData from "@/data/rentals";
@@ -16,22 +15,28 @@ import DefaultFooter from "@/components/footer/default";
 import SlideGallery from "@/components/rental-single/SlideGallery";
 import MapPropertyFinder from "@/components/rental-single/MapPropertyFinder";
 import HelpfulFacts from "@/components/rental-single/HelpfulFacts";
-import { useEffect, useState } from "react";
 
 
-const TourSingleV1Dynamic = ({ params }) => {
-  const [rental, setRental] = useState(null)
+
+const TourSingleV1Dynamic = async ({ params }) => {
+
   const id = params.id;
 
+  let rental;
 
-  useEffect(() => {
-    fetch(`http://localhost:8000/items/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      setRental(data)
-      // setLoading(false)
-    })
-  }, [])
+  try {
+    const response = await fetch(`http://localhost:8000/items/${id}`)
+
+    if (!response.ok) {
+      throw new Error('Запит не був успішним');
+    }
+  
+    rental = await response.json();
+  } catch (error) {
+    console.log(error)
+  }
+
+  
 
   return (
     <>

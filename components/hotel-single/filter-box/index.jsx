@@ -3,8 +3,14 @@ import DateSearch from "./DateSearch";
 
 const index = ({hotel}) => {
 
-  const extras = hotel?.extra;
-  const extrasWithoutAccommodation = extras.filter(extra => extra !== 'accommodation');
+  let extras;
+  let extrasWithoutAccommodation;
+ 
+  if(hotel.extra) {
+    console.log('extaaa')
+    extras = hotel?.extra;
+    extrasWithoutAccommodation = extras.filter(extra => extra !== 'accommodation');
+  }
 
   const extrasType = {
     'transfer': "Transfer",

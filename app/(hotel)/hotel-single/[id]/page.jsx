@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
@@ -25,7 +25,7 @@ import Hotels2 from "@/components/hotels/Hotels2";
 import CallToActions from "@/components/common/CallToActions";
 import DefaultFooter from "@/components/footer/default";
 import GalleryOne from "@/components/hotel-single/GalleryOne";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 // export const metadata = {
 //   title: "Hotel Single v1 || GoTrip - Travel & Tour React NextJS Template",
@@ -33,20 +33,36 @@ import { useEffect, useState } from "react";
 // };
 
 const HotelSingleV1Dynamic = async ({ params }) => {
-  const [hotel, setHotel] = useState()
+  // const [hotel, setHotel] = useState()
   const id = params.id;
   // const hotel = hotelsData.find((item) => item.id == id) || hotelsData[0];
+  let hotel;
+  try {
+    const response = await fetch(`http://localhost:8000/items/${id}`)
 
-  useEffect(() => {
+    if (!response.ok) {
+      // Обробка помилок, якщо запит був неуспішним
+      throw new Error('Запит не був успішним');
+    }
+  
+    hotel = await response.json();
 
-    fetch(`http://localhost:8000/items/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-      setHotel(data)
-      // setLoading(false)
-    })
-  }, [])
+    console.log(hotel)
+
+  } catch (error) {
+    console.log(error)
+  }
+
+  // useEffect(() => {
+
+  //   fetch(`http://localhost:8000/items/${id}`, { cache: 'no-cache' })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data)
+  //     setHotel(data)
+  //     // setLoading(false)
+  //   })
+  // }, [])
 
   return (
     <>
