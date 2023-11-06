@@ -6,11 +6,16 @@ const index = ({hotel}) => {
 
   let extras;
   let extrasWithoutAccommodation;
- 
-  if(hotel.extra) {
-    extras = hotel?.extra;
-    extrasWithoutAccommodation = extras.filter(extra => extra !== 'accommodation');
+  
+  try {
+    if(hotel?.extra) {
+      extras = hotel?.extra;
+      extrasWithoutAccommodation = extras.filter(extra => extra !== 'accommodation');
+    }
+  } catch (error) {
+    console.log(error)
   }
+
 
   const extrasType = {
     'transfer': "Transfer",
