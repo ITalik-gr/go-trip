@@ -18,10 +18,11 @@ function Index() {
   const dispatch = useDispatch()
   const searchParams = useSearchParams()
  
-  const place = searchParams.get('place')
   const search = searchParams.get('includes')
+  const place = searchParams.get('place')
 
-  const includes = search.split(',');
+
+  const includes = search?.split(',');
 
   useEffect(() => {
     dispatch(

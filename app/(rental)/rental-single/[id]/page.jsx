@@ -30,7 +30,6 @@ const TourSingleV1Dynamic = async ({ params }) => {
     if (!response.ok) {
       throw new Error('Запит не був успішним');
     }
-  
     rental = await response.json();
   } catch (error) {
     console.log(error)

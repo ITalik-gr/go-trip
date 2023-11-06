@@ -37,11 +37,11 @@ const HotelSingleV1Dynamic = async ({ params }) => {
   const id = params.id;
   // const hotel = hotelsData.find((item) => item.id == id) || hotelsData[0];
   let hotel;
+
   try {
     const response = await fetch(`http://localhost:8000/items/${id}`)
 
     if (!response.ok) {
-      // Обробка помилок, якщо запит був неуспішним
       throw new Error('Запит не був успішним');
     }
   
@@ -52,17 +52,6 @@ const HotelSingleV1Dynamic = async ({ params }) => {
   } catch (error) {
     console.log(error)
   }
-
-  // useEffect(() => {
-
-  //   fetch(`http://localhost:8000/items/${id}`, { cache: 'no-cache' })
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     console.log(data)
-  //     setHotel(data)
-  //     // setLoading(false)
-  //   })
-  // }, [])
 
   return (
     <>
