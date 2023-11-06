@@ -32,26 +32,30 @@ import GalleryOne from "@/components/hotel-single/GalleryOne";
 //   description: "GoTrip - Travel & Tour React NextJS Template",
 // };
 
-const HotelSingleV1Dynamic = async ({ params }) => {
-  // const [hotel, setHotel] = useState()
-  const id = params.id;
-  // const hotel = hotelsData.find((item) => item.id == id) || hotelsData[0];
-  let hotel;
-
+async function fetchData(id) {
   try {
     const response = await fetch(`http://localhost:8000/items/${id}`)
 
     if (!response.ok) {
       throw new Error('Запит не був успішним');
     }
-  
-    hotel = await response.json();
 
-    console.log(hotel)
+    return response.json();
+  
+    // return hotel = await response.json();
 
   } catch (error) {
     console.log(error)
   }
+}
+
+const HotelSingleV1Dynamic = async ({ params }) => {
+  // const [hotel, setHotel] = useState()
+  const id = params.id;
+  // const hotel = hotelsData.find((item) => item.id == id) || hotelsData[0];
+  let hotel = await fetchData(id)
+
+ 
 
   return (
     <>
