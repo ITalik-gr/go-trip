@@ -32,7 +32,7 @@
       "ratings": "4.82",
       "price": "99",
       "delayAnimation": "200",
-      "extra": ["flights", "ski_equipment", "ski_passes", "transfer"],
+      "extra": ["flights", "ski_equipment", "ski_passes", "transfer", "accommodation"],
       "accommodation": "Chalet",
       "guest": "2",
       "bedroom": "1",
@@ -49,7 +49,7 @@
       "ratings": "3.82",
       "price": "88",
       "delayAnimation": "300",
-      "extra": ["flights", "ski_equipment", "ski_passes", "transfer"],
+      "extra": ["flights", "ski_equipment", "ski_passes", "transfer", "accommodation"],
       "accommodation": "Chalet",
       "guest": "2",
       "bedroom": "1",
@@ -66,7 +66,7 @@
       "ratings": "3",
       "price": "55",
       "delayAnimation": "400",
-      "extra": ["ski_passes", "transfer"],
+      "extra": ["ski_passes", "transfer", "accommodation"],
       "accommodation": "Chalet",
       "guest": "2",
       "bedroom": "1",
@@ -83,8 +83,7 @@
       "ratings": "4.82",
       "price": "67",
       "delayAnimation": "100",
-      "included": ["accommodation", "flights", "transfer"],
-      "extra": ["flights", "ski_equipment", "ski_passes", "transfer"],
+      "extra": ["flights", "ski_equipment", "ski_passes", "transfer", "accommodation"],
       "accommodation": "Hotel",
       "guest": "2",
       "bedroom": "1",
@@ -101,7 +100,7 @@
       "ratings": "2",
       "price": "67",
       "delayAnimation": "200",
-      "extra": ["flights"],
+      "extra": ["flights", "accommodation"],
       "accommodation": "Hotel",
       "guest": "2",
       "bedroom": "1",
@@ -160,6 +159,285 @@
       "guest": "2",
       "bedroom": "1",
       "bed": "1"
+    }
+  ],
+  "cars": [
+    {
+      "id": 1,
+      "tag": "",
+      "slideImg": ["/img/cars/skoda_octavia.webp"],
+      "title": "Mercedes-Benz E-Class",
+      "location": "Heathrow Airport",
+      "type": "LUXURY",
+      "ratings": "4.8",
+      "numberOfReviews": "3014",
+      "price": "72",
+      "seat": "4",
+      "luggage": "1",
+      "transmission": "Automatic",
+      "speed": "Unlimited",
+      "delayAnimation": "100"
+    },
+    {
+      "id": 2,
+      "tag": "",
+      "slideImg": ["/img/cars/slides/2.png", "/img/cars/slides/1.png", "/img/cars/slides/3.png"],
+      "title": "Jaguar F-Pace",
+      "location": "Heathrow Airport",
+      "type": "SUV",
+      "ratings": "4.6",
+      "numberOfReviews": "2345",
+      "price": "99",
+      "seat": "3",
+      "luggage": "1",
+      "transmission": "Manual",
+      "speed": "Unlimited",
+      "delayAnimation": "200"
+    },
+    {
+      "id": 3,
+      "tag": "best seller",
+      "slideImg": ["/img/cars/3.png"],
+      "title": "Volvo XC90",
+      "location": "Heathrow Airport",
+      "type": "SUV",
+      "ratings": "4.9",
+      "numberOfReviews": "4321",
+      "price": "87",
+      "seat": "5",
+      "luggage": "1",
+      "transmission": "Automatic",
+      "speed": "Unlimited",
+      "delayAnimation": "300"
+    },
+    {
+      "id": 4,
+      "tag": "",
+      "slideImg": ["/img/cars/4.png"],
+      "title": "BMW 5 Series",
+      "location": "Heathrow Airport",
+      "type": "LUXURY",
+      "ratings": "5.0",
+      "numberOfReviews": "2432",
+      "price": "78",
+      "seat": "3",
+      "luggage": "1",
+      "transmission": "Automatic",
+      "speed": "Unlimited",
+      "delayAnimation": "400"
+    },
+    {
+      "id": 5,
+      "tag": "",
+      "slideImg": ["/img/cars/1.png"],
+      "title": "Mercedes-Benz E-Class",
+      "location": "Heathrow Airport",
+      "type": "LUXURY",
+      "ratings": "4.8",
+      "numberOfReviews": "3014",
+      "price": "72",
+      "seat": "4",
+      "luggage": "1",
+      "transmission": "Automatic",
+      "speed": "Unlimited",
+      "delayAnimation": "100"
+    },
+    {
+      "id": 6,
+      "tag": "",
+      "slideImg": ["/img/cars/2.png", "/img/cars/1.png", "/img/cars/3.png"],
+      "title": "Jaguar F-Pace",
+      "location": "Heathrow Airport",
+      "type": "SUV",
+      "ratings": "4.6",
+      "numberOfReviews": "2345",
+      "price": "99",
+      "seat": "3",
+      "luggage": "1",
+      "transmission": "Manual",
+      "speed": "Unlimited",
+      "delayAnimation": "200"
+    },
+    {
+      "id": 7,
+      "tag": "",
+      "slideImg": ["/img/cars/1.png"],
+      "title": "Mercedes-Benz E-Class",
+      "location": "Heathrow Airport",
+      "type": "LUXURY",
+      "ratings": "4.8",
+      "numberOfReviews": "3014",
+      "price": "72",
+      "seat": "4",
+      "luggage": "1",
+      "transmission": "Automatic",
+      "speed": "Unlimited",
+      "delayAnimation": "100"
+    }
+  ]
+  ,
+  "flights": [
+    {
+      "id": 1,
+      "price": "934",
+      "deals": "16",
+      "delayAnimation": "100",
+      "selectId": "collapse_1",
+      "flightList": [
+        {
+          "id": 1,
+          "avatar": "/img/flightIcons/1.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "3h 05m- Nonstop"
+        },
+        {
+          "id": 2,
+          "avatar": "/img/flightIcons/2.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "5h 05m- Nonstop"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "price": "690",
+      "deals": "12",
+      "delayAnimation": "200",
+      "selectId": "collapse_2",
+      "flightList": [
+        {
+          "id": 1,
+          "avatar": "/img/flightIcons/1.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "4h 05m- Nonstop"
+        },
+        {
+          "id": 2,
+          "avatar": "/img/flightIcons/2.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "6h 05m- Nonstop"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "price": "999",
+      "deals": "17",
+      "delayAnimation": "300",
+      "selectId": "collapse_3",
+      "flightList": [
+        {
+          "id": 1,
+          "avatar": "/img/flightIcons/1.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "4h 05m- Nonstop"
+        },
+        {
+          "id": 2,
+          "avatar": "/img/flightIcons/2.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "7h 05m- Nonstop"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "price": "859",
+      "deals": "15",
+      "delayAnimation": "400",
+      "selectId": "collapse_4",
+      "flightList": [
+        {
+          "id": 1,
+          "avatar": "/img/flightIcons/1.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "3h 05m- Nonstop"
+        },
+        {
+          "id": 2,
+          "avatar": "/img/flightIcons/2.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "9h 05m- Nonstop"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "price": "934",
+      "deals": "16",
+      "delayAnimation": "500",
+      "selectId": "collapse_5",
+      "flightList": [
+        {
+          "id": 1,
+          "avatar": "/img/flightIcons/1.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "3h 05m- Nonstop"
+        },
+        {
+          "id": 2,
+          "avatar": "/img/flightIcons/2.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "5h 05m- Nonstop"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "price": "690",
+      "deals": "12",
+      "delayAnimation": "600",
+      "selectId": "collapse_6",
+      "flightList": [
+        {
+          "id": 1,
+          "avatar": "/img/flightIcons/1.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "4h 05m- Nonstop"
+        },
+        {
+          "id": 2,
+          "avatar": "/img/flightIcons/2.png",
+          "arrivalAirport": "SAW",
+          "departureAirport": "STN",
+          "departureTime": "14:00",
+          "arrivalTime": "22:00",
+          "duration": "6h 05m- Nonstop"
+        }
+      ]
     }
   ]
 }

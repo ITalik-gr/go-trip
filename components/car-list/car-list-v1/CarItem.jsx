@@ -6,28 +6,13 @@ import { Navigation, Pagination } from "swiper";
 import Image from "next/image";
 import Link from "next/link";
 
-const CarItem = () => {
+const CarItem = ({transfer}) => {
 
-  const item =  {
-    id: 1,
-    tag: "",
-    slideImg: ["/img/cars/skoda_octavia.webp"],
-    title: "Mercedes-Benz E-Class",
-    location: "Heathrow Airport",
-    type: "LUXURY",
-    ratings: "4.8",
-    numberOfReviews: "3014",
-    price: "72",
-    seat: "4",
-    luggage: "1",
-    transmission: "Automatic",
-    speed: "Unlimited",
-    delayAnimation: "100",
-  }
+
 
   return (
     <>
-      <div className="col-12" key={item?.id}>
+      <div className="col-12" key={transfer?.id}>
         <div className="p-3">
           <div className="row mb-20 x-gap-20 y-gap-20">
             <div className="col-md-auto">
@@ -42,7 +27,7 @@ const CarItem = () => {
                       }}
                       navigation={true}
                     >
-                      {item?.slideImg?.map((slide, i) => (
+                      {transfer?.slideImg?.map((slide, i) => (
                         <SwiperSlide key={i}>
                           <div className="ratio ratio-1:1">
                             <div className="cardImage__content">
@@ -80,7 +65,7 @@ const CarItem = () => {
                   <div className="row x-gap-5 items-center">
                     <div className="col-auto">
                       <div className="text-14 text-light-1">
-                        {item?.location}
+                        {transfer?.location}
                       </div>
                     </div>
                     <div className="col-auto">
@@ -100,27 +85,27 @@ const CarItem = () => {
                     <div className="col-sm-6">
                       <div className="d-flex items-center">
                         <i className="icon-user-2" />
-                        <div className="text-14 ml-10">{item?.seat}</div>
+                        <div className="text-14 ml-10">{transfer?.seat}</div>
                       </div>
                     </div>
                     <div className="col-sm-6">
                       <div className="d-flex items-center">
                         <i className="icon-luggage" />
-                        <div className="text-14 ml-10">{item?.luggage}</div>
+                        <div className="text-14 ml-10">{transfer?.luggage}</div>
                       </div>
                     </div>
                     <div className="col-sm-6">
                       <div className="d-flex items-center">
                         <i className="icon-transmission" />
                         <div className="text-14 ml-10">
-                          {item?.transmission}
+                          {transfer?.transmission}
                         </div>
                       </div>
                     </div>
                     <div className="col-sm-6">
                       <div className="d-flex items-center">
                         <i className="icon-speedometer" />
-                        <div className="text-14 ml-10">{item?.speed}</div>
+                        <div className="text-14 ml-10">{transfer?.speed}</div>
                       </div>
                     </div>
                     <div className="col-sm-6">
@@ -160,13 +145,13 @@ const CarItem = () => {
                 <div className="col-auto">
                   <div className="text-14 lh-14 fw-500">Exceptional</div>
                   <div className="text-14 lh-14 text-light-1">
-                    {item?.numberOfReviews} reviews
+                    {transfer?.numberOfReviews} reviews
                   </div>
                 </div>
                 {/* End col */}
                 <div className="col-auto">
                   <div className="flex-center text-dark-1 fw-600 text-14 size-40 rounded-4 bg-yellow-1">
-                    {item?.ratings}
+                    {transfer?.ratings}
                   </div>
                 </div>
                 {/* End col */}
@@ -174,11 +159,11 @@ const CarItem = () => {
               {/* End .row */}
 
               <div className="text-22 lh-12 fw-600 mt-70 md:mt-20">
-                US${item?.price}
+                US${transfer?.price}
               </div>
               <div className="text-14 text-light-1 mt-5">Total</div>
               <Link
-                href={`/car-single/${item.id}`}
+                href={`/car-single/${transfer.id}`}
                 className="button h-50 px-24 bg-dark-1 -yellow-1 text-white mt-24"
               >
                 View Detail <div className="icon-arrow-top-right ml-15" />

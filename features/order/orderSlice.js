@@ -5,7 +5,7 @@ const initialState = {
   transfer: 0,
   accommodation: 0,
   extras: ["none"],
-  place: '',
+  place: 0,
 };
 
 export const orderSlice = createSlice({

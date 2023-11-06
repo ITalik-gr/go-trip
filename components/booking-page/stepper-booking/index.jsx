@@ -9,27 +9,31 @@ import OrderDetails from "../OrderDetails";
 import { useSearchParams } from 'next/navigation'
 import FlightsAll from "@/components/flight-all";
 import Transfer from "../Transfer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setExtras, setPlace } from "@/features/order/orderSlice";
+import Link from "next/link";
 
 function Index() {
   const [currentStep, setCurrentStep] = useState(0);
-
-
+  const dispatch = useDispatch()
   const searchParams = useSearchParams()
  
+  const place = searchParams.get('place')
   const search = searchParams.get('includes')
 
   const includes = search.split(',');
 
-  // console.log(includes);
+  useEffect(() => {
+    dispatch(
+      setExtras(includes), 
+    )
+  }, []);
 
 
-    // Генеруємо динамічні степи на основі includes
-    
 
-  
-    // Об'єднуємо статичні та динамічні степи
-  
+  console.log(search)
+
+
   
   const renderStep = () => {
     const { content } = allSteps[currentStep];
@@ -76,18 +80,8 @@ function Index() {
   }));
   const state = useSelector((state) => state.order)
 
-  // const dispatch = useDispatch();
-
-  // const handleOverviewOrder = () => {
-  //   // Викликаємо дію для огляду замовлення, якщо це необхідно
-  //   dispatch(overviewOrder());
-
-  //   // Отримуємо стан і виводимо його в консоль
-  //   console.log(state);
-  // }
-
   const overviewOrder = () => {
-   
+    dispatch(setPlace(place))
     console.log(state);
   }
   return (
@@ -145,13 +139,16 @@ function Index() {
         {/* End prvious btn */}
 
         <div className="col-auto">
-          <button
-            className="button h-60 px-24 -dark-1 bg-blue-1 text-white"
-            disabled={currentStep === allSteps.length}
-            onClick={overviewOrder}
-          >
-            Order <div className="icon-arrow-top-right ml-15" />
-          </button>
+          <Link href={`/overview?place=${place}&extras=${includes}&flights=${state.flights}&transfer=${state.transfer}`}>
+            <button
+              className="button h-60 px-24 -dark-1 bg-blue-1 text-white"
+              disabled={currentStep === allSteps.length}
+              onClick={overviewOrder}
+            >
+              Order <div className="icon-arrow-top-right ml-15" />
+            </button>
+          </Link>
+
         </div>
         {/* End next btn */}
       </div>

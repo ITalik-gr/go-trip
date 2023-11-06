@@ -1,39 +1,13 @@
 import flightsData from "../../../data/flights";
 
-const FlightItem = () => {
+const FlightItem = ({flights}) => {
   // item from parent. data alert-primary
-  const item =   {
-    id: 1,
-    price: "934",
-    deals: "16",
-    delayAnimation: "100",
-    selectId: "collapse_1",
-    flightList: [
-      {
-        id: 1,
-        avatar: "/img/flightIcons/1.png",
-        arrivalAirport: "SAW",
-        departureAirport: "STN",
-        departureTime: "14:00",
-        arrivalTime: "22:00",
-        duration: "3h 05m- Nonstop",
-      },
-      {
-        id: 2,
-        avatar: "/img/flightIcons/2.png",
-        arrivalAirport: "SAW",
-        departureAirport: "STN",
-        departureTime: "14:00",
-        arrivalTime: "22:00",
-        duration: "5h 05m- Nonstop",
-      },
-    ],
-  }
+
 
 
   return (
     <>
-      <div className="js-accordion" key={item.id}>
+      <div className="js-accordion" key={flights.id}>
         <div className="py-30 px-30 bg-white rounded-4 base-tr">
           <div className="row y-gap-30 justify-between">
             <div className="col">
@@ -122,7 +96,7 @@ const FlightItem = () => {
                     <button
                       className="button -dark-1 px-30 h-50 bg-blue-1 text-white"
                       data-bs-toggle="collapse"
-                      data-bs-target={`#${item.selectId}`}
+                      data-bs-target={`#${flights.selectId}`}
                     >
                       View Deal <div className="icon-arrow-top-right ml-15" />
                     </button>
@@ -134,7 +108,7 @@ const FlightItem = () => {
           </div>
           {/* End .row */}
 
-          <div className=" collapse" id={item.selectId}>
+          <div className=" collapse" id={flights.selectId}>
             <div className="border-light rounded-4 mt-30">
               <div className="py-20 px-30">
                 <div className="row justify-between items-center">

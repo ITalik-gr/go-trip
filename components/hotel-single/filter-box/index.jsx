@@ -66,7 +66,7 @@ const index = ({hotel}) => {
           </button>
         </div> */}
         <Link
-          href={`/booking-page?includes=${hotel?.extra}`}
+          href={`/booking-page?includes=${hotel?.extra}&place=${hotel?.id}`}
           className="button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white"
         >
           Book Now
