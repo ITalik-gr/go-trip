@@ -1,4 +1,5 @@
-import dynamic from "next/dynamic";
+// 'use client'
+import dynamic from 'next/dynamic';
 import "photoswipe/dist/photoswipe.css";
 import rentalsData from "@/data/rentals";
 import Header11 from "@/components/header/header-11";
@@ -15,25 +16,33 @@ import DefaultFooter from "@/components/footer/default";
 import SlideGallery from "@/components/rental-single/SlideGallery";
 import MapPropertyFinder from "@/components/rental-single/MapPropertyFinder";
 import HelpfulFacts from "@/components/rental-single/HelpfulFacts";
+// import { useEffect, useState } from "react";
 
 
 
 const TourSingleV1Dynamic = async ({ params }) => {
+  // const [rental, setRental] = useState()
 
-  const id = params.id;
+  const res = await fetch(`http://localhost:8000/items/${params.id}`);
 
-  let rental;
+  // useEffect(() => {
+  //   fetch(`http://localhost:8000/items/${id}`)
+  //   .then((data) => data.json())
+  //   .then((data) => setRental(data) )
+  // }, [])
+  let rental = await res.json()
+  console.log(rental);
 
-  try {
-    const response = await fetch(`http://localhost:8000/items/${id}`)
+  // try {
+  //   const response = await fetch(`http://localhost:8000/items/${id}`)
 
-    if (!response.ok) {
-      throw new Error('Запит не був успішним');
-    }
-    rental = await response.json();
-  } catch (error) {
-    console.log(error)
-  }
+  //   if (!response.ok) {
+  //     throw new Error('Запит не був успішним');
+  //   }
+  //   rental = await response.json();
+  // } catch (error) {
+  //   console.log(error)
+  // }
 
   
 

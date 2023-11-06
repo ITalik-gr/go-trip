@@ -5,10 +5,9 @@ import activity from "@/data/activity";
 
 
 const index = ({rental}) => {
-  console.log(rental)
 
   const extras = rental?.extra;
-  const extrasWithoutAccommodation = extras.filter(extra => extra !== 'accommodation');
+  const extrasWithoutAccommodation = extras?.filter(extra => extra !== 'accommodation');
 
   const extrasType = {
     'transfer': "Transfer",
