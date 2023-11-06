@@ -22,16 +22,16 @@ import HelpfulFacts from "@/components/rental-single/HelpfulFacts";
 
 const TourSingleV1Dynamic = async ({ params }) => {
   // const [rental, setRental] = useState()
+  let rental;
+  try {
+    const res = await fetch(`http://localhost:8000/items/${params.id}`);
 
-  const res = await fetch(`http://localhost:8000/items/${params.id}`);
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:8000/items/${id}`)
-  //   .then((data) => data.json())
-  //   .then((data) => setRental(data) )
-  // }, [])
-  let rental = await res.json()
-  console.log(rental);
+    rental = await res.json()
+    console.log(rental);
+  } catch (error) {
+    console.log(error)
+  }
+  
 
   // try {
   //   const response = await fetch(`http://localhost:8000/items/${id}`)
