@@ -1,6 +1,20 @@
+'use client'
+import { useDispatch } from "react-redux";
 import flightsData from "../../../data/flights";
+import { setFlights } from "@/features/order/orderSlice";
 
-const FlightProperties = () => {
+const FlightProperties = ({nextStep}) => {
+
+
+  const dispatch = useDispatch();
+
+  const handle = (item) => {
+    let id = item.id;
+    console.log(id)
+    dispatch(setFlights(id));
+    nextStep()
+  }
+
   return (
     <>
       {flightsData.map((item) => (
@@ -94,8 +108,9 @@ const FlightProperties = () => {
                         className="button -dark-1 px-30 h-50 bg-blue-1 text-white"
                         data-bs-toggle="collapse"
                         data-bs-target={`#${item.selectId}`}
+                        onClick={() => handle(item)}
                       >
-                        View Deal <div className="icon-arrow-top-right ml-15" />
+                        Choose <div className="icon-arrow-top-right ml-15" />
                       </button>
                     </div>
                   </div>

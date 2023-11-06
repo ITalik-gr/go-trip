@@ -6,7 +6,7 @@ import TransferCard from "./TransferCard";
 import Sidebar from "../car-list/car-list-v1/Sidebar";
 import CarPropertes from "../car-list/car-list-v1/CarPropertes";
 
-const Transfer = () => {
+const Transfer = ({nextStep}) => {
   return (
     <section className="transfer layout-pt-md layout-pb-md mt-20">
     <div className="container">
@@ -52,7 +52,7 @@ const Transfer = () => {
 
         <div className="col-xl-9 ">
           <div className="row">
-          <CarPropertes />
+          <CarPropertes nextStep={nextStep} />
           </div>
           {/* End .row */}
         </div>

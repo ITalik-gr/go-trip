@@ -9,8 +9,9 @@ import OrderDetails from "../OrderDetails";
 import { useSearchParams } from 'next/navigation'
 import FlightsAll from "@/components/flight-all";
 import Transfer from "../Transfer";
+import { useSelector } from "react-redux";
 
-const Index = () => {
+function Index() {
   const [currentStep, setCurrentStep] = useState(0);
 
 
@@ -22,37 +23,14 @@ const Index = () => {
 
   // console.log(includes);
 
-  const typeComponent = {
-    flights: <FlightsAll />,
-    accommodation: <CustomerInfo />,
-    transfer: <Transfer />,
-  }
-  const stepName = {
-    flights: "Flights",
-    accommodation: "Accommodation",
-    transfer: "Transfer",
-  }
+
     // Генеруємо динамічні степи на основі includes
     
-    const allSteps = includes
-    .filter((include) => !["ski_equipment", "ski_passes"].includes(include))
-    .map((include, index) => ({
-      title: stepName[include],
-      stepNo: (index + 1).toString(),
-      stepBar: index + 1 !== includes.length - 2 ? (
-        <>
-        {console.log(index + 1 !== includes.length)}
-          <div className="col d-none d-sm-block">
-            <div className="w-full h-1 bg-border"></div>
-          </div>
-        </>
-      ) : (""),
-      content: typeComponent[include],
-    }));
+
   
     // Об'єднуємо статичні та динамічні степи
   
-
+  
   const renderStep = () => {
     const { content } = allSteps[currentStep];
     return <>{content}</>;
@@ -70,6 +48,48 @@ const Index = () => {
     }
   };
 
+  const typeComponent = {
+    flights: <FlightsAll nextStep={nextStep} />,
+    accommodation: <CustomerInfo nextStep={nextStep}  />,
+    transfer: <Transfer nextStep={nextStep} />,
+  }
+  const stepName = {
+    flights: "Flights",
+    accommodation: "Accommodation",
+    transfer: "Transfer",
+  }
+
+  const allSteps = includes
+  .filter((include) => !["ski_equipment", "ski_passes"].includes(include))
+  .map((include, index) => ({
+    title: stepName[include],
+    stepNo: (index + 1).toString(),
+    stepBar: index + 1 !== includes.length - 2 ? (
+      <>
+      {console.log(index + 1 !== includes.length)}
+        <div className="col d-none d-sm-block">
+          <div className="w-full h-1 bg-border"></div>
+        </div>
+      </>
+    ) : (""),
+    content: typeComponent[include],
+  }));
+  const state = useSelector((state) => state.order)
+
+  // const dispatch = useDispatch();
+
+  // const handleOverviewOrder = () => {
+  //   // Викликаємо дію для огляду замовлення, якщо це необхідно
+  //   dispatch(overviewOrder());
+
+  //   // Отримуємо стан і виводимо його в консоль
+  //   console.log(state);
+  // }
+
+  const overviewOrder = () => {
+   
+    console.log(state);
+  }
   return (
     <>
       <div className="row x-gap-40 y-gap-30 items-center justify-center">
@@ -127,10 +147,10 @@ const Index = () => {
         <div className="col-auto">
           <button
             className="button h-60 px-24 -dark-1 bg-blue-1 text-white"
-            disabled={currentStep === allSteps.length - 1}
-            onClick={nextStep}
+            disabled={currentStep === allSteps.length}
+            onClick={overviewOrder}
           >
-            Next <div className="icon-arrow-top-right ml-15" />
+            Order <div className="icon-arrow-top-right ml-15" />
           </button>
         </div>
         {/* End next btn */}

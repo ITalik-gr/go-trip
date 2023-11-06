@@ -3,7 +3,7 @@ import FlightProperties from "@/components/flight-list/flight-list-v1/FlightProp
 import Pagination from "@/components/flight-list/common/Pagination";
 import Sidebar from "@/components/flight-list/flight-list-v1/Sidebar";
 
- const index = () => {
+ const index = ({nextStep}) => {
   return (
     <section className="flights layout-pt-md layout-pb-md mt-20">
     <div className="container">
@@ -49,7 +49,7 @@ import Sidebar from "@/components/flight-list/flight-list-v1/Sidebar";
           <TopHeaderFilter />
 
           <div className="row">
-            <FlightProperties />
+            <FlightProperties nextStep={nextStep} />
           </div>
           {/* End .row */}
           <Pagination />

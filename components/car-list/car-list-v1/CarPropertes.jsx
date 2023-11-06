@@ -5,9 +5,21 @@ import carsData from "../../../data/cars";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import Image from "next/image";
-import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { setTransfer } from "@/features/order/orderSlice";
 
-const CarPropertes = () => {
+const CarPropertes = ({nextStep}) => {
+
+  const state = useSelector((state) => state.order)
+  const dispatch = useDispatch();
+  console.log(state);
+  const handle = (item) => {
+    let id = item.id;
+    console.log(id)
+    dispatch(setTransfer(id));
+    nextStep()
+  }
+
   return (
     <>
       {carsData.slice(0, 5).map((item) => (
@@ -161,12 +173,12 @@ const CarPropertes = () => {
                   US${item?.price}
                 </div>
                 <div className="text-14 text-light-1 mt-5">Total</div>
-                <Link
-                  href={`/car-single/${item.id}`}
+                <a style={{"cursor": "pointer"}}
                   className="button h-50 px-24 bg-dark-1 -yellow-1 text-white mt-24"
+                  onClick={() => handle(item)}
                 >
-                  View Detail <div className="icon-arrow-top-right ml-15" />
-                </Link>
+                  Choose <div className="icon-arrow-top-right ml-15" />
+                </a>
               </div>
               {/* End col-md-auto */}
             </div>
