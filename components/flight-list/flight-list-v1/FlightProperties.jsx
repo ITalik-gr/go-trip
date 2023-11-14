@@ -1,19 +1,38 @@
 'use client'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import flightsData from "../../../data/flights";
 import { setFlights } from "@/features/order/orderSlice";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 
-const FlightProperties = ({nextStep}) => {
+const FlightProperties = ({nextStep, currentStep, allSteps}) => {
 
-
+  // Знайти всі данні які треба передати до review 
+  // данні з редакса
+  const state = useSelector((state) => state.order)
   const dispatch = useDispatch();
 
+  // данні з url
+  let searchParams = useSearchParams()
+
+  let search = searchParams.get('includes')
+  let place = searchParams.get('place')
+  let includes = search?.split(',');
+
+
+
   const handle = (item) => {
+
     let id = item.id;
     console.log(id)
     dispatch(setFlights(id));
     nextStep()
+
+    if(currentStep + 1 == allSteps.length) {
+      window.location.href = `/overview?place=${place}&extras=${includes}&flights=${state.flights}&transfer=${state.transfer}`;
+    }
   }
+
 
   return (
     <>
@@ -106,8 +125,8 @@ const FlightProperties = ({nextStep}) => {
                     <div className="accordion__button">
                       <button
                         className="button -dark-1 px-30 h-50 bg-blue-1 text-white"
-                        data-bs-toggle="collapse"
-                        data-bs-target={`#${item.selectId}`}
+                        // data-bs-toggle="collapse"
+                        // data-bs-target={`#${item.selectId}`}
                         onClick={() => handle(item)}
                       >
                         Choose <div className="icon-arrow-top-right ml-15" />

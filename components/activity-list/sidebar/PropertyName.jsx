@@ -22,7 +22,7 @@ const PropertyName = ({filter, setFilter}) => {
               </div>
               <div className="text-15 ml-10">{language.name}</div>
             </div> */}
-            <input onChange={(e) => changeName(e)} className="sidebar-input property-name__input" type="text" name="PropertyName" id="PropertyName" />
+            <input onChange={(e) => changeName(e)} className="sidebar-input property-name__input" type="text" name="PropertyName" id="PropertyName" placeholder="Please enter the name" />
           </div>
           {/* End .col */}
           {/* <div className="col-auto">

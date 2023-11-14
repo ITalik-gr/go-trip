@@ -1,7 +1,7 @@
-import activity from "@/data/activity";
+
 import Image from "next/image";
 
-const StarRating = ({filter, setFilter}) => {
+const StarRating = ({filter, setFilter, filteredData}) => {
 
   const handleCheckboxChange = (event) => {
     const checkboxName = event.target.dataset.name;
@@ -30,27 +30,29 @@ const StarRating = ({filter, setFilter}) => {
     { id: 1, label: "1", count: 0 },
   ];
 
-  activity.forEach((item) => {
-    switch (true) {
-      case item.ratings >= 5:
-        checkboxes[0].count++;
-        break;
-      case item.ratings >= 4:
-        checkboxes[1].count++;
-        break;
-      case item.ratings >= 3:
-        checkboxes[2].count++;
-        break;
-      case item.ratings >= 2:
-        checkboxes[3].count++;
-        break;
-      case item.ratings >= 1:
-        checkboxes[4].count++;
-        break;
-      default:
-        break;
-    }
-  });
+  if(filteredData?.length >= 0) {
+    filteredData?.forEach((item) => {
+      switch (true) {
+        case item.ratings >= 5:
+          checkboxes[0].count++;
+          break;
+        case item.ratings >= 4:
+          checkboxes[1].count++;
+          break;
+        case item.ratings >= 3:
+          checkboxes[2].count++;
+          break;
+        case item.ratings >= 2:
+          checkboxes[3].count++;
+          break;
+        case item.ratings >= 1:
+          checkboxes[4].count++;
+          break;
+        default:
+          break;
+      }
+    });
+  }
   
 
 

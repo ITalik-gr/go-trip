@@ -1,9 +1,9 @@
 'use client'
 
-import activity from "@/data/activity";
+// import activity from "@/data/activity";
 import { useEffect } from "react";
 
-const AccommodationTypes = ({filter, setFilter}) => {
+const AccommodationTypes = ({filter, setFilter, filteredData}) => {
 
   const handleCheckboxChange = (event) => {
     const checkboxName = event.target.dataset.name;
@@ -20,20 +20,21 @@ const AccommodationTypes = ({filter, setFilter}) => {
     }
   };
   
-  
-  
   const accommodationTypes = [
     { name: "Hotel", count: 0 },
     { name: "Chalet", count: 0 },
   ];
 
-  activity.forEach((item) => {
-    if (item.accommodation === "Hotel") {
-      accommodationTypes[0].count++;
-    } else if (item.accommodation === "Chalet") {
-      accommodationTypes[1].count++;
-    }
-  });
+  if(filteredData?.length >= 0) {
+    filteredData?.forEach((item) => {
+      if (item.accommodation === "Hotel") {
+        accommodationTypes[0].count++;
+      } else if (item.accommodation === "Chalet") {
+        accommodationTypes[1].count++;
+      }
+    });
+  }
+
 
   return (
     <>

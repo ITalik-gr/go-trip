@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import "photoswipe/dist/photoswipe.css";
-import { hotelsData } from "@/data/hotels";
 import Header11 from "@/components/header/header-11";
 import Overview from "@/components/hotel-single/Overview";
 import PopularFacilities from "@/components/hotel-single/PopularFacilities";
@@ -26,35 +25,11 @@ import CallToActions from "@/components/common/CallToActions";
 import DefaultFooter from "@/components/footer/default";
 import GalleryOne from "@/components/hotel-single/GalleryOne";
 import { useEffect, useState } from "react";
-// import { useEffect, useState } from "react";
 
-// export const metadata = {
-//   title: "Hotel Single v1 || GoTrip - Travel & Tour React NextJS Template",
-//   description: "GoTrip - Travel & Tour React NextJS Template",
-// };
-
-// async function fetchData(id) {
-//   try {
-//     const response = await fetch(`http://localhost:8000/items/${id}`)
-
-//     if (!response.ok) {
-//       throw new Error('Запит не був успішним');
-//     }
-
-//     return response.json();
-  
-//     // return hotel = await response.json();
-
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
 
 const HotelSingleV1Dynamic = async ({ params }) => {
   const [hotel, setHotel] = useState()
   const id = params.id;
-  // const hotel = hotelsData.find((item) => item.id == id) || hotelsData[0];
-  // let hotel = await fetchData(id)
 
   useEffect(() => {
     fetch(`http://localhost:8000/items/${id}`)

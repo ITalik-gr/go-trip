@@ -1,14 +1,11 @@
 "use client"
 
 import Header11 from "@/components/header/header-11";
-import Overview from "@/components/rental-single/Overview";
 import TopBreadCrumb from "@/components/rental-single/TopBreadCrumb";
 import CallToActions from "@/components/common/CallToActions";
 import DefaultFooter from "@/components/footer/default";
-import FlightProperties from "@/components/flight-list/flight-list-v1/FlightProperties";
 import FlightItem from "@/components/flight-list/flight-list-v1/FlightItem";
 import CarItem from "@/components/car-list/car-list-v1/CarItem";
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 

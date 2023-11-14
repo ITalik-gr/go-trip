@@ -7,17 +7,33 @@ import { Navigation, Pagination } from "swiper";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { setTransfer } from "@/features/order/orderSlice";
+import { useSearchParams } from "next/navigation";
 
-const CarPropertes = ({nextStep}) => {
+const CarPropertes = ({nextStep, allSteps, currentStep}) => {
 
+  // Знайти всі данні які треба передати до review 
+  // данні з редакса
   const state = useSelector((state) => state.order)
   const dispatch = useDispatch();
-  console.log(state);
+
+  // данні з url
+  let searchParams = useSearchParams()
+
+  let search = searchParams.get('includes')
+  let place = searchParams.get('place')
+  let includes = search?.split(',');
+
+
+
   const handle = (item) => {
     let id = item.id;
     console.log(id)
     dispatch(setTransfer(id));
     nextStep()
+
+    if(currentStep + 1 == allSteps.length) {
+      window.location.href = `/overview?place=${place}&extras=${includes}&flights=${state.flights}&transfer=${state.transfer}`;
+    }
   }
 
   return (

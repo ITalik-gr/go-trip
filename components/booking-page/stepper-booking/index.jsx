@@ -3,9 +3,6 @@
 
 import React, { useState, useEffect } from "react";
 import CustomerInfo from "../CustomerInfo";
-import PaymentInfo from "../PaymentInfo";
-import OrderSubmittedInfo from "../OrderSubmittedInfo";
-import OrderDetails from "../OrderDetails";
 import { useSearchParams } from 'next/navigation'
 import FlightsAll from "@/components/flight-all";
 import Transfer from "../Transfer";
@@ -30,14 +27,9 @@ function Index() {
     )
   }, []);
 
-
-
-  console.log(search)
-
-
   
   const renderStep = () => {
-    const { content } = allSteps[currentStep];
+    const { content } = stepsContent[currentStep];
     return <>{content}</>;
   };
 
@@ -53,32 +45,33 @@ function Index() {
     }
   };
 
+  const allSteps = includes?.filter((include) => !["ski_equipment", "ski_passes", "accommodation"].includes(include));
+
   const typeComponent = {
-    flights: <FlightsAll nextStep={nextStep} />,
-    accommodation: <CustomerInfo nextStep={nextStep}  />,
-    transfer: <Transfer nextStep={nextStep} />,
+    flights: <FlightsAll currentStep={currentStep} nextStep={nextStep} allSteps={allSteps} />,
+    transfer: <Transfer currentStep={currentStep} nextStep={nextStep} allSteps={allSteps} />,
   }
+
   const stepName = {
     flights: "Flights",
     accommodation: "Accommodation",
     transfer: "Transfer",
   }
 
-  const allSteps = includes
-  .filter((include) => !["ski_equipment", "ski_passes"].includes(include))
-  .map((include, index) => ({
+  const stepsContent = allSteps?.map((include, index) => ({
     title: stepName[include],
     stepNo: (index + 1).toString(),
-    stepBar: index + 1 !== includes.length - 2 ? (
+    stepBar: index + 1 != includes.length ? (
       <>
-      {console.log(index + 1 !== includes.length)}
-        <div className="col d-none d-sm-block">
+        <div className="col d-none d-sm-block line-last">
           <div className="w-full h-1 bg-border"></div>
         </div>
       </>
     ) : (""),
     content: typeComponent[include],
   }));
+
+  
   const state = useSelector((state) => state.order)
 
   const overviewOrder = () => {
@@ -87,8 +80,9 @@ function Index() {
   }
   return (
     <>
-      <div className="row x-gap-40 y-gap-30 items-center justify-center">
-        {allSteps.map((step, index) => (
+      <div className="row x-gap-40 y-gap-30 items-center justify-center steps">
+        {/* Steps */}
+        {stepsContent?.map((step, index) => (
           <React.Fragment key={index}>
             <div className="col-auto">
               <div
@@ -124,6 +118,7 @@ function Index() {
       </div>
       {/* End stepper header part */}
 
+
       <div className="row">{renderStep()}</div>
       {/* End main content */}
 
@@ -143,7 +138,7 @@ function Index() {
           <Link href={`/overview?place=${place}&extras=${includes}&flights=${state.flights}&transfer=${state.transfer}`}>
             <button
               className="button h-60 px-24 -dark-1 bg-blue-1 text-white"
-              disabled={currentStep === allSteps.length}
+              disabled={currentStep + 1 !== allSteps.length}
               onClick={overviewOrder}
             >
               Order <div className="icon-arrow-top-right ml-15" />

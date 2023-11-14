@@ -1,42 +1,40 @@
 
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({filter, setFilter}) => {
   const [searchValue, setSearchValue] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
+
+
+  useEffect(() => {
+      console.log(searchValue)
+      if(searchValue) {
+        setFilter({...filter, location: searchValue})
+      }
+  }, [searchValue])
 
   const locationSearchContent = [
     {
       id: 1,
       name: "London",
-      address: "Greater London, United Kingdom",
+      address: "Westminster Borough, London",
     },
     {
       id: 2,
-      name: "New York",
-      address: "New York State, United States",
+      name: "Barcelona",
+      address: "Ciutat Vella, Barcelona",
     },
     {
       id: 3,
-      name: "Paris",
-      address: "France",
-    },
-    {
-      id: 4,
-      name: "Madrid",
-      address: "Spain",
-    },
-    {
-      id: 5,
-      name: "Santorini",
-      address: "Greece",
+      name: "New York",
+      address: "Manhattan, New York",
     },
   ];
 
   const handleOptionClick = (item) => {
-    setSearchValue(item.name);
+    setSearchValue(item.address);
     setSelectedItem(item);
   };
 

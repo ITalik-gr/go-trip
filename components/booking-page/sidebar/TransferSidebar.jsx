@@ -1,12 +1,3 @@
-// import Map from "../../car-list/sidebar";
-// import LocationFilters from "../../car-list/sidebar/LocationFilters";
-// import PirceSlider from "../../car-list/sidebar/PirceSlider";
-// import CategorieFilters from "../../car-list/sidebar/CategorieFilters";
-// import SupplierFilters from "../../car-list/sidebar/SupplierFilters";
-// import SpecificationsFilter from "../../car-list/sidebar/SpecificationsFilter";
-// import MileageFilter from "../../car-list/sidebar/MileageFilter";
-// import TransmissionFilter from "../../car-list/sidebar/TransmissionFilter";
-// import FuelPolicyFilter from "../../car-list/sidebar/FuelPolicyFilter";
 
 const TransferSidebar = () => {
   return (

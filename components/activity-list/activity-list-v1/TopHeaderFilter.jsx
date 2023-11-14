@@ -1,10 +1,10 @@
-const TopHeaderFilter = () => {
+const TopHeaderFilter = ({filteredData, filter}) => {
   return (
     <>
       <div className="row y-gap-10 items-center justify-between">
         <div className="col-auto">
           <div className="text-18">
-            <span className="fw-500">3,269 properties</span> in Europe
+            <span className="fw-500">{filteredData?.length || '0'} trips found in </span> in {filter.location == 'all' ? "Europe" : filter.location}
           </div>
         </div>
         {/* End .col */}

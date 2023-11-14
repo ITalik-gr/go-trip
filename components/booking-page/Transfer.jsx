@@ -1,12 +1,8 @@
-import TransferSidebar from "./sidebar/TransferSidebar"
-import TopHeaderFilter from "@/components/flight-list/flight-list-v1/TopHeaderFilter";
-import FlightProperties from "@/components/flight-list/flight-list-v1/FlightProperties";
-import Pagination from "@/components/flight-list/common/Pagination";
-import TransferCard from "./TransferCard";
+
 import Sidebar from "../car-list/car-list-v1/Sidebar";
 import CarPropertes from "../car-list/car-list-v1/CarPropertes";
 
-const Transfer = ({nextStep}) => {
+const Transfer = ({nextStep, allSteps, currentStep}) => {
   return (
     <section className="transfer layout-pt-md layout-pb-md mt-20">
     <div className="container">
@@ -52,7 +48,7 @@ const Transfer = ({nextStep}) => {
 
         <div className="col-xl-9 ">
           <div className="row">
-          <CarPropertes nextStep={nextStep} />
+          <CarPropertes nextStep={nextStep} allSteps={allSteps} currentStep={currentStep} />
           </div>
           {/* End .row */}
         </div>

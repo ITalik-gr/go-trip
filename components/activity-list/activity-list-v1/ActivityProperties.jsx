@@ -9,27 +9,36 @@ import { useEffect, useState } from "react";
 
 // ? LIST ITEMS
 
-const ActivityProperties = ({filter}) => {
+const ActivityProperties = ({filter,  onFilterData}) => {
 
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
   const [filteredData, setFilteredData] = useState({})
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20; // Кількість елементів на сторінці
+
+  
   useEffect(() => {
 
-    fetch('http://localhost:8000/items')
-    .then((res) => res.json())
-    .then((data) => {
-      setData(data)
-      setLoading(false)
-    })
+    try {
+      fetch('http://localhost:8000/items')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+ 
   }, [])
 
 
 
   const filterData = () => {
-    console.log('data filter')
-    const { price, accommodationType, starRating, name } = filter;
+    console.log('data filter');
+    const { price, accommodationType, starRating, name, location } = filter;
   
     // Фільтруємо за price
     const filteredByPrice = data.filter((item) => {
@@ -55,25 +64,37 @@ const ActivityProperties = ({filter}) => {
     });
   
     // Фільтруємо за точним співпаданням тайтлу
- const filteredByName = filteredByStarRating.filter((item) => {
-    if (name === "all") {
-      return true;
-    }
-
-    return item.title.toLowerCase().startsWith(name.toLowerCase());
-  });
+    const filteredByName = filteredByStarRating.filter((item) => {
+      if (name === "all") {
+        return true;
+      }
   
-    setFilteredData(filteredByName);
-  }
+      return item.title.toLowerCase().startsWith(name.toLowerCase());
+    });
+  
+    // Фільтруємо за локацією
+    const filteredByLocation = filteredByName.filter((item) => {
+      if (location === "all") {
+        return true;
+      }
+  
+      return item.location === location;
+    });
+  
+    setFilteredData(filteredByLocation);
+  };
   
   
-
 
   useEffect(() => {
     if(data) {
       filterData()
     }
   }, [filter, data])
+
+  useEffect(() => {
+    onFilterData(filteredData);
+  }, [filteredData, onFilterData]);
 
 
   

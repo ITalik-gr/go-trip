@@ -1,9 +1,6 @@
-import flightsData from "../../../data/flights";
 
 const FlightItem = ({flights}) => {
   // item from parent. data alert-primary
-
-
 
   return (
     <>

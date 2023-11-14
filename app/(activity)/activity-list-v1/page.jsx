@@ -9,22 +9,28 @@ import ActivityProperties from "@/components/activity-list/activity-list-v1/Acti
 import Pagination from "@/components/activity-list/common/Pagination";
 import Sidebar from "@/components/activity-list/activity-list-v1/Sidebar";
 import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
-// export const metadata = {
-//   title: "Activity List v1 || GoTrip - Travel & Tour React NextJS Template",
-//   description: "GoTrip - Travel & Tour React NextJS Template",
-// };
 
 const index = () => {
-  
+
+  const [filteredData, setFilteredData] = useState()
+
+  const PER_PAGE = 5;
+
+
   const [filter, setFilter] = useState({
     price: { min: 0, max: 500 },
     accommodationType: 'all',
     starRating: 'all',
-    name: "all"
+    name: "all",
+    location: "all",
   });
 
-  console.log(filter);
+  const handleFilteredData = (filteredData) => {
+    // Опрацьовуємо дані, отримані від компонента ActivityProperties
+    setFilteredData(filteredData)
+  };
   return (
     <>
       {/* End Page Title */}
@@ -44,7 +50,7 @@ const index = () => {
                 <h1 className="text-30 fw-600">Activities in London</h1>
               </div>
               {/* End text-center */}
-              <MainFilterSearchBox />
+              <MainFilterSearchBox filter={filter} setFilter={setFilter} />
             </div>
             {/* End col-12 */}
           </div>
@@ -60,7 +66,7 @@ const index = () => {
     {/* Sidebar */}
             <div className="col-xl-3">
               <aside className="sidebar y-gap-40 xl:d-none">
-                <Sidebar filter={filter}  setFilter={setFilter} />
+                <Sidebar filter={filter}  setFilter={setFilter} filteredData={filteredData} />
               </aside>
               {/* End sidebar for desktop */}
 
@@ -93,18 +99,20 @@ const index = () => {
             </div>
             {/* End col */}
 
-{/* Items list */}
+          {/* Items list */}
+
+          {/* Total properties andd sort */}
             <div className="col-xl-9 ">
-              <TopHeaderFilter />
+              <TopHeaderFilter filteredData={filteredData} filter={filter} />
               <div className="mt-30"></div>
               {/* End mt--30 */}
 
               <div className="row y-gap-30">
-                <ActivityProperties filter={filter} />
+                <ActivityProperties filter={filter} onFilterData={handleFilteredData}/>
               </div>
               
               {/* End .row */}
-              <Pagination />
+              <Pagination per_page={PER_PAGE} />
             </div>
             {/* End .col for right content */}
           </div>

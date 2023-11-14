@@ -2,38 +2,43 @@
 'use client'
 
 import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
-const Pagination = () => {
+const Pagination = ({per_page}) => {
+
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handlePageClick = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
-  const renderPage = (pageNumber, isActive = false) => {
-    const className = `size-40 flex-center rounded-full cursor-pointer ${
-      isActive ? "bg-dark-1 text-white" : ""
-    }`;
-    return (
-      <div key={pageNumber} className="col-auto">
-        <div className={className} onClick={() => handlePageClick(pageNumber)}>
-          {pageNumber}
-        </div>
-      </div>
-    );
-  };
 
-  const renderPages = () => {
-    const totalPages = 5; // Change this to the actual total number of pages
-    const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pageNumbers.push(i);
-    }
-    const pages = pageNumbers.map((pageNumber) =>
-      renderPage(pageNumber, pageNumber === currentPage)
-    );
-    return pages;
-  };
+
+  // const handlePageClick = (pageNumber) => {
+  //   setCurrentPage(pageNumber);
+  // };
+
+  // const renderPage = (pageNumber, isActive = false) => {
+  //   const className = `size-40 flex-center rounded-full cursor-pointer ${
+  //     isActive ? "bg-dark-1 text-white" : ""
+  //   }`;
+  //   return (
+  //     <div key={pageNumber} className="col-auto">
+  //       <div className={className} onClick={() => handlePageClick(pageNumber)}>
+  //         {pageNumber}
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
+  // const renderPages = () => {
+  //   const totalPages = 5; // Change this to the actual total number of pages
+  //   const pageNumbers = [];
+  //   for (let i = 1; i <= totalPages; i++) {
+  //     pageNumbers.push(i);
+  //   }
+  //   const pages = pageNumbers.map((pageNumber) =>
+  //     renderPage(pageNumber, pageNumber === currentPage)
+  //   );
+  //   return pages;
+  // };
 
   return (
     <div className="border-top-light mt-30 pt-30">
@@ -46,6 +51,7 @@ const Pagination = () => {
 
         <div className="col-md-auto md:order-3">
           <div className="row x-gap-20 y-gap-20 items-center md:d-none">
+            
             {renderPages()}
             <div className="col-auto">
               <div className="size-40 flex-center rounded-full">...</div>

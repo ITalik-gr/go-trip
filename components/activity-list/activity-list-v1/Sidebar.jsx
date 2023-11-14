@@ -7,7 +7,7 @@ import PopularAttractions from "../sidebar/PopularAttractions";
 import StarRating from "../sidebar/StarRating";
 import PropertyName from "../sidebar/PropertyName";
 // ? MAIN SIDEBAR
-const Sidebar = ({filter, setFilter}) => {
+const Sidebar = ({filter, setFilter, filteredData}) => {
   // console.log(filter)
   return (
     <>
@@ -15,7 +15,7 @@ const Sidebar = ({filter, setFilter}) => {
       <div className="sidebar__item -no-border">
         <h5 className="text-18 fw-500 mb-10">Property Name</h5>
         <div className="sidebar-checkbox">
-          <PropertyName filter={filter} setFilter={setFilter}/>
+          <PropertyName filter={filter} setFilter={setFilter} filteredData={filteredData}/>
         </div>
         {/* End Sidebar-checkbox */}
       </div>
@@ -23,7 +23,7 @@ const Sidebar = ({filter, setFilter}) => {
       <div className="sidebar__item">
         <h5 className="text-18 fw-500 mb-10">Accommodation Types</h5>
         <div className="sidebar-checkbox">
-          <AccommodationTypes filter={filter} setFilter={setFilter} />
+          <AccommodationTypes filter={filter} setFilter={setFilter} filteredData={filteredData} />
         </div>
         {/* End Sidebar-checkbox */}
       </div>
@@ -43,7 +43,7 @@ const Sidebar = ({filter, setFilter}) => {
       <div className="sidebar__item">
         <h5 className="text-18 fw-500 mb-10">Star Raring</h5>
         <div className="sidebar-checkbox">
-          <StarRating filter={filter} setFilter={setFilter}/>
+          <StarRating filter={filter} setFilter={setFilter} filteredData={filteredData}/>
         </div>
       </div>
       {/* End rating filter */}
